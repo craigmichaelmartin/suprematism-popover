@@ -1,31 +1,54 @@
-# SuprematismTooltip
+# SuprematismPopover
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.16.
+An Angular 2 popover directive.
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+### Installation
+```bash
+npm i -S CINBCUniversal/suprematism-popover
+```
+Until it is published to npm, point to github. A consequence of this is that built files must be checked-in. When we publish to npm with `npm publish`, there is a prehook to build the files and a posthook to delete them (so only source files are saved in git). For now, after doing development, we must manually run the publish prehook and save the files.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class`.
 
-## Build
+### Attibute Directives
+- [`suprePopoverHeader`](#suprePopoverHeader)
+- [`suprePopoverBody`](#suprePopoverBody)
+- [`suprePopoverPosition`](#suprePopoverPosition)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-## Running unit tests
+#### <a id="suprePopoverHeader"></a> `suprePopoverHeader`
+An attribute directive for the popover header text, accepting a string.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+#### <a id="suprePopoverBody"></a> `suprePopoverBody`
+An attribute directive for the popover body text, accepting a string.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/). 
-Before running the tests make sure you are serving the app via `ng serve`.
 
-## Deploying to Github Pages
+#### <a id="suprePopoverPosition"></a> `suprePopoverPosition`
+An attribute directive for the popover position, accepting 'top'|'right'|'bottom'|'left' which defaults to 'top'.
 
-Run `ng github-pages:deploy` to deploy to Github Pages.
 
-## Further help
+### Example
+```html
+<span
+  suprePopoverHeader="How is that possible?"
+  suprePopoverBody="The Browns have a history of losing to the bye week"
+  suprePopoverPosition="right">
+    The Browns are likely to go 0-17 this year.
+</span>
+```
+Run the example locally with
+```bash
+npm run example
+```
 
-To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+#### Acknowledgments
+This repo draws extensively from the excellant https://github.com/pleerock/ng2-popover.  
+As of now, it doesn't share the code (most of which should be), but because many methods are private, I cannot extend the class, nor do something like `PopoverContent.prototype.method.call(this, arguments)`. Also, I'm unsure how to wrap an angular class, otherwise I would have gone the route of creating a facade in front of ng2-popover.  
+I'll keep thinking about how to implement this in a way that keeps ng2-popover as an upstream lib - where code can be shared/perfected together.
+
+
+#### Implementation details
+- As noted, heavily draws from ng2-popover until it can be used as an upstream lib.
+- Uses bootstrap's popover scss. This allows us to inherit the wealth of bug fixes, tests, etc from upstream.

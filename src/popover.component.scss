@@ -1,0 +1,30 @@
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+@import "node_modules/bootstrap/scss/popover";
+
+.popover {
+  border-width: 3px;
+}
+.popover.bottom .popover-arrow:after {
+  border-top-width: 3px;
+}
+.popover.right .popover-arrow:after {
+  border-left-width: 3px;
+}
+.popover.top .popover-arrow:after {
+  border-bottom-width: 3px;
+}
+.popover.left .popover-arrow:after {
+  border-right-width: 3px;
+}
+.popover-title {
+  border-bottom: none;
+  background-color: white;
+  text-transform: uppercase;
+  padding-bottom: 2px;
+  font-size: 14px;
+}
+.popover-content {
+  padding-top: 0px;
+  line-height: 1.3em;
+}

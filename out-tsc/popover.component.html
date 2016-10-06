@@ -1,0 +1,21 @@
+<div #popoverDiv class="popover {{ getPosition() }}"
+  [style.borderColor]="color"
+  [style.top]="top + 'px'"
+  [style.left]="left + 'px'"
+  [class.in]="isIn"
+  [class.fade]="animation"
+  style="display: block"
+  role="popover">
+    <div class="popover-arrow js-popoverArrow"
+      [ngStyle]="getPopoverArrowStyles()">
+    </div>
+    <h3 class="popover-title js-popoverHeader"
+      [style.color]="color"
+      [hidden]="!header">
+        {{ header }}
+    </h3>
+    <div class="popover-content js-popoverBody">
+      <ng-content></ng-content>
+      {{ body }}
+    </div>
+</div>
