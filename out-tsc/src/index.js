@@ -42,4 +42,4 @@ var PopoverModule = (function () {
     return PopoverModule;
 }());
 exports.PopoverModule = PopoverModule;
-//# sourceMappingURL=/Users/craigmartin/projects/suprematism-popover/src/index.js.map
+//# sourceMappingURL=/Users/craigmartin/projects/suprematism-popover/src/src/index.js.map

@@ -1,89 +1,81 @@
-import { Directive, HostListener, ComponentRef, ViewContainerRef,
-         ComponentFactoryResolver, Input } from '@angular/core';
+import { Directive, Input, HostListener, ViewContainerRef, ComponentFactoryResolver} from '@angular/core';
 import { PopoverComponent } from './popover.component';
 import { PopoverPositionType } from './popover-position.type';
+import { Popover } from '../node_modules/ng2-popover/src/Popover';
 
 @Directive({
   selector: '[suprePopoverBody]',
   exportAs: 'suprePopoverBody'
 })
-export class PopoverDirective {
+export class PopoverDirective extends Popover {
+
+  // Inputs / Outputs 
+
+  @Input('suprePopoverBody')
+  content: string|PopoverComponent;
+
+  @Input('suprePopoverPosition')
+  popoverPlacement: PopoverPositionType;
+
+  @Input('suprePopoverHeader')
+  popoverTitle: string;
+
+  @Input('suprePopoverOnHover')
+  popoverOnHover: boolean = true;
+
+  @Input('suprePopoverDisabled')
+  popoverDisabled: boolean = false;
+
+  @Input('suprePopoverAnimated')
+  popoverAnimation: boolean = false;
+
+  @Input('suprePopoverCloseOnClickOutside')
+  popoverCloseOnClickOutside: boolean;
+
+  @Input('suprePopoverCloseOnMouseOutside')
+  popoverCloseOnMouseOutside: boolean;
+
+  @Input('suprePopoverDismissTimeout')
+  popoverDismissTimeout: number = 0;
+
 
   // Properties
 
-  private popover: ComponentRef<PopoverComponent>;
-  private visible: boolean;
-
-
-  // Inputs / Outputs
-
-  @Input('suprePopoverBody')
-  public body: string|PopoverComponent;
-
-  @Input('suprePopoverPosition')
-  public position: PopoverPositionType;
-
-  @Input('suprePopoverHeader')
-  public header: string;
+  protected PopoverComponent = PopoverComponent;
 
 
   // Constructor
 
-  constructor(private viewContainerRef: ViewContainerRef,
-              private resolver: ComponentFactoryResolver) {
+  constructor(protected viewContainerRef: ViewContainerRef,
+              protected resolver: ComponentFactoryResolver) {
+    super(viewContainerRef, resolver);
   }
 
 
   // Event listeners
 
+  @HostListener('click')
+  showOrHideOnClick(): void {
+    if (this.popoverOnHover) { return; }
+    if (this.popoverDisabled) { return; }
+    this.toggle();
+  }
+
   @HostListener('focusin')
   @HostListener('mouseenter')
-  public showOnHover(): void {
+  showOnHover(): void {
+    if (!this.popoverOnHover) { return; }
+    if (this.popoverDisabled) { return; }
     this.show();
   }
 
   @HostListener('focusout')
   @HostListener('mouseleave')
-  public hideOnHover(): void {
-    this.hide();
-  }
-
-
-  // Public Methods
-
-  public toggle(): void {
-    if (!this.visible) {
-      this.show();
-    } else {
+  hideOnHover(): void {
+      if (this.popoverCloseOnMouseOutside) { return; } // don't do anything since not we control this
+      if (!this.popoverOnHover) { return; }
+      if (this.popoverDisabled) { return; }
       this.hide();
-    }
-  }
-
-  public show(): void {
-    if (this.visible) { return; }
-    this.visible = true;
-    const factory = this.resolver.resolveComponentFactory(PopoverComponent);
-
-    this.popover = this.viewContainerRef.createComponent(factory);
-    const popover = this.popover.instance as PopoverComponent;
-    popover.popover = this;
-    popover.body = this.body as string;
-    if (this.position !== undefined) {
-      popover.position = this.position;
-    }
-    if (this.header !== undefined) {
-      popover.header = this.header;
-    }
-  }
-
-  public hide(): void {
-    if (!this.visible) { return; }
-    this.visible = false;
-    this.popover.destroy();
-  }
-
-  public getElement() {
-    return this.viewContainerRef.element.nativeElement;
   }
 
 }

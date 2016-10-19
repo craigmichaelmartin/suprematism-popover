@@ -3,22 +3,24 @@
   "version": "0.0.1",
   "license": "MIT",
   "angular-cli": {},
-  "main": "out-tsc/index.js",
-  "typings": "out-tsc/index.d.ts",
+  "main": "out-tsc/src/index.js",
+  "typings": "out-tsc/src/index.d.ts",
   "scripts": {
     "build": "npm run build:tsc && npm run build:css && npm run build:copyAssets",
-    "build:copyAssets": "cp -R src/*.css ./out-tsc && cp -R src/*html ./out-tsc",
+    "build:copyAssets": "cp -R src/*.css out-tsc/src && cp -R src/*.html out-tsc/src",
     "build:css": "node-sass src/popover.component.scss src/popover.component.css",
     "build:tsc": "tsc -p src",
+    "clean": "rm -rf out-tsc && rm -f src/popover.component.css",
     "deploy": "npm run build && ng github-pages:deploy",
     "e2e": "protractor",
     "example": "ng serve",
     "lint": "npm run lint:src && npm run lint:example",
     "lint:src": "tslint \"src/**/*.ts\"",
     "lint:example": "tslint \"example/**/*.ts\"",
+    "prebuild": "npm run clean",
     "pree2e": "webdriver-manager update",
     "prepublish": "npm run build",
-    "postpublish": "rm -rf out-tsc && rm -rf src/popover.component.css",
+    "postpublish": "npm run clean",
     "test": "ng test"
   },
   "private": true,
@@ -46,5 +48,8 @@
     "tslint": "3.13.0",
     "typescript": "2.0.2",
     "zone.js": "^0.6.23"
+  },
+  "dependencies": {
+    "ng2-popover": "github:pleerock/ng2-popover#a41c907534fb6abaa5746421e2bca0c3d1e64999"
   }
 }

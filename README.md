@@ -3,32 +3,36 @@
 An Angular 2 popover directive.
 
 
-### Installation
+#### Installation
 ```bash
 npm i -S CINBCUniversal/suprematism-popover
 ```
-Until it is published to npm, point to github. A consequence of this is that built files must be checked-in. When we publish to npm with `npm publish`, there is a prehook to build the files and a posthook to delete them (so only source files are saved in git). For now, after doing development, we must manually run the publish prehook and save the files.
+Until it is published to npm, point to github. A consequence of this is that built files must be checked-in. When we publish to npm with `npm publish`, there is a prehook to build the files and a posthook to delete them (so only source files are saved in git). For now, after doing development, we must manually run the build script and save the files.
+
+#### View
+- [Hosted on Github Pages](https://cinbcuniversal.github.io/suprematism-popover/)
+- Run the example locally with `npm run example`
 
 
-### Attibute Directives
+## Attibute Directives
 - [`suprePopoverHeader`](#suprePopoverHeader)
 - [`suprePopoverBody`](#suprePopoverBody)
 - [`suprePopoverPosition`](#suprePopoverPosition)
 
 
-#### <a id="suprePopoverHeader"></a> `suprePopoverHeader`
-An attribute directive for the popover header text, accepting a string.
+#### <a id="suprePopoverHeader"></a> `suprePopoverHeader: string`
+An attribute directive for the popover header text.
 
 
-#### <a id="suprePopoverBody"></a> `suprePopoverBody`
-An attribute directive for the popover body text, accepting a string.
+#### <a id="suprePopoverBody"></a> `suprePopoverBody: string`
+An attribute directive for the popover body text.
 
 
-#### <a id="suprePopoverPosition"></a> `suprePopoverPosition`
-An attribute directive for the popover position, accepting 'top'|'right'|'bottom'|'left' which defaults to 'top'.
+#### <a id="suprePopoverPosition"></a> `suprePopoverPosition: PopoverPosition`
+An attribute directive for the popover position, which defaults to 'top'.
 
 
-### Example
+## Example
 ```html
 <span
   suprePopoverHeader="How is that possible?"
@@ -43,12 +47,12 @@ npm run example
 ```
 
 
-#### Acknowledgments
-This repo draws extensively from the excellant https://github.com/pleerock/ng2-popover.  
-As of now, it doesn't share the code (most of which should be), but because many methods are private, I cannot extend the class, nor do something like `PopoverContent.prototype.method.call(this, arguments)`. Also, I'm unsure how to wrap an angular class, otherwise I would have gone the route of creating a facade in front of ng2-popover.  
-I'll keep thinking about how to implement this in a way that keeps ng2-popover as an upstream lib - where code can be shared/perfected together.
-
-
-#### Implementation details
-- As noted, heavily draws from ng2-popover until it can be used as an upstream lib.
-- Uses bootstrap's popover scss. This allows us to inherit the wealth of bug fixes, tests, etc from upstream.
+## Implementation details
+- This module extends (ng2-popover)[https://github.com/pleerock/ng2-popover],
+  and uses bootstrap's popover scss.
+- In both cases, these are implementation details that can be swapped out.
+  The public api of the component / directive does not use either repo's api.
+- Doing so this way allows us both a steadfast facade that we own (and whose
+  implementation we can change as desired) while not re-inventing the wheel
+  and missing the opportunity to inherit a wealth of usability, tests,
+  bug fixes, etc from upstream at no cost.
