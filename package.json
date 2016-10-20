@@ -1,34 +1,41 @@
 {
-  "name": "suprematism-tooltip",
-  "version": "0.0.0",
+  "name": "suprematism-popover",
+  "version": "0.0.1",
   "license": "MIT",
   "angular-cli": {},
+  "main": "out-tsc/src/index.js",
+  "typings": "out-tsc/src/index.d.ts",
   "scripts": {
-    "start": "ng serve",
-    "lint": "tslint \"src/**/*.ts\"",
-    "test": "ng test",
+    "build": "npm run build:tsc && npm run build:css && npm run build:copyAssets",
+    "build:copyAssets": "cp -R src/*.css out-tsc/src && cp -R src/*.html out-tsc/src",
+    "build:css": "node-sass src/popover.component.scss src/popover.component.css",
+    "build:tsc": "tsc -p src",
+    "clean": "rm -rf out-tsc && rm -f src/popover.component.css",
+    "deploy": "npm run build && ng github-pages:deploy",
+    "e2e": "protractor",
+    "example": "ng serve",
+    "lint": "npm run lint:src && npm run lint:example",
+    "lint:src": "tslint \"src/**/*.ts\"",
+    "lint:example": "tslint \"example/**/*.ts\"",
+    "prebuild": "npm run clean",
     "pree2e": "webdriver-manager update",
-    "e2e": "protractor"
+    "prepublish": "npm run build",
+    "postpublish": "npm run clean",
+    "test": "ng test"
   },
   "private": true,
-  "dependencies": {
-    "@angular/common": "2.0.0",
-    "@angular/compiler": "2.0.0",
-    "@angular/core": "2.0.0",
-    "@angular/forms": "2.0.0",
-    "@angular/http": "2.0.0",
-    "@angular/platform-browser": "2.0.0",
-    "@angular/platform-browser-dynamic": "2.0.0",
-    "@angular/router": "3.0.0",
-    "core-js": "^2.4.1",
-    "rxjs": "5.0.0-beta.12",
-    "ts-helpers": "^1.1.1",
-    "zone.js": "^0.6.23"
+  "peerDependencies": {
+    "@angular/core": "^2.0.0"
   },
   "devDependencies": {
+    "@angular/core": "2.0.0",
+    "@angular/platform-browser": "2.0.0",
+    "@angular/platform-browser-dynamic": "2.0.0",
     "@types/jasmine": "^2.2.30",
     "angular-cli": "1.0.0-beta.16",
+    "bootstrap": "4.0.0-alpha.4",
     "codelyzer": "~0.0.26",
+    "core-js": "^2.4.1",
     "jasmine-core": "2.4.1",
     "jasmine-spec-reporter": "2.5.0",
     "karma": "1.2.0",
@@ -39,6 +46,10 @@
     "protractor": "4.0.9",
     "ts-node": "1.2.1",
     "tslint": "3.13.0",
-    "typescript": "2.0.2"
+    "typescript": "2.0.2",
+    "zone.js": "^0.6.23"
+  },
+  "dependencies": {
+    "ng2-popover": "github:pleerock/ng2-popover#a41c907534fb6abaa5746421e2bca0c3d1e64999"
   }
 }
