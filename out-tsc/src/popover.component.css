@@ -134,5 +134,7 @@
   font-size: 14px; }
 
 .popover-content {
-  padding-top: 0px;
   line-height: 1.3em; }
+
+.popover-content.is-titled {
+  padding-top: 0px; }

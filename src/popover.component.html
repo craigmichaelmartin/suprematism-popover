@@ -14,7 +14,10 @@
       [hidden]="!title">
         {{ title }}
     </h3>
-    <div class="popover-content js-popoverBody">
+    <div
+        [ngClass]='!!title ? "is-titled" : "is-standalone"'
+        class="popover-content js-popoverBody"
+    >
       <ng-content></ng-content>
       {{ content }}
     </div>
