@@ -1,31 +1,40 @@
-# SuprematismInlineConfirmationDialog
+# Suprematism Popover: <br>Tooltips &amp; Inline Dialogs
+Extended from all the hardwork at [pleerock/ng2-popover](https://github.com/pleerock/ng2-popover). Thanks to [@pleerock](https://github.com/pleerock)!
+<br>
+<br>
+<br>
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
+## Documentation for Usage
+Please visit the [Suprematism Style Guide](https://cinbcuniversal.github.io/suprematism-style-guide/) for documentation needs.
+<br>
+<br>
+<br>
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Technical Details
+The suprematism popover is an Angular 2/x Module. It uses a combination of the Angular CLI and some build scripts to build a reusable, distributable, component system for tooltips and inline dialogs. For use inside the Suprematism system.
 
-## Code scaffolding
+#### Scripts
+```
+// Start the Demo App
+npm run start
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+// Run the e2e tests (NOTE: Server must be running)
+npm run e2e
 
-## Build
+// Build the module/component 
+npm run build
+``` 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Deploying to GitHub Pages
-
-Run `ng github-pages:deploy` to deploy to GitHub Pages.
-
-## Further help
-
-To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+#### Angular and CLI Version Info
+```
+angular-cli: 1.0.0-beta.28.3
+@angular/common: 2.4.6
+@angular/compiler: 2.4.6
+@angular/compiler-cli: 2.4.6
+@angular/core: 2.4.6
+@angular/forms: 2.4.6
+@angular/http: 2.4.6
+@angular/platform-browser: 2.4.6
+@angular/platform-browser-dynamic: 2.4.6
+@angular/router: 3.4.6
+```
