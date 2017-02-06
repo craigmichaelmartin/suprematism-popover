@@ -1,29 +1,57 @@
-<div style="padding:100px 300px">
-  <span class="js-topElement"
-        suprePopoverBody="Body Top"
-        suprePopoverHeader="Header Top"
-        suprePopoverPosition="top">
-    Element with popover on top.
-  </span>
-  <br>
-  <span class="js-rightElement"
-        suprePopoverBody="Body Right"
-        suprePopoverHeader="Header Right"
-        suprePopoverPosition="right">
-    Element with popover on right.
-  </span>
-  <br>
-  <span class="js-bottomElement"
-        suprePopoverBody="Body Bottom"
-        suprePopoverHeader="Header Bottom"
-        suprePopoverPosition="bottom">
-    Element with popover on bottom.
-  </span>
-  <br>
-  <span class="js-leftElement"
-        suprePopoverBody="Body Left"
-        suprePopoverHeader="Header Left"
-        suprePopoverPosition="left">
-    Element with popover on left.
-  </span>
+<div style="margin: 100px 80px;">
+
+  <!-- Tooltip Example -->
+  <!-- Hover, and positions -->
+  <div id="simple-tooltip-positions" class="_mtxl">
+    <div id="top" class="flex justify-left">
+      Some text to&nbsp;<strong popoverPlacement="top" class="color-aqua" supreTooltip="Title for the top here">test</strong>&nbsp;with. Appears on Top.
+    </div>
+    <div id="right" class="flex justify-left">
+      Some text to&nbsp;<strong popoverPlacement="right" class="color-aqua" supreTooltip="Title for the right here">test</strong>&nbsp;with. Appears on Right.
+    </div>
+    <div id="bottom" class="flex justify-left">
+      Some text to&nbsp;<strong popoverPlacement="bottom" class="color-aqua" supreTooltip="Title for the bottom here">test</strong>&nbsp;with. Appears on Bottom.
+    </div>
+    <div id="left" class="flex justify-left">
+      Some text to&nbsp;<strong popoverPlacement="left" class="color-aqua" supreTooltip="Title for the left here">test</strong>&nbsp;with. Appears on Left.
+    </div>
+    <div id="default" class="flex justify-left">
+      Some text to&nbsp;<strong class="color-aqua" supreTooltip="Title for the top here">test</strong>&nbsp;with. Default position appear on Top.
+    </div>
+  </div>
+
+  <!-- //\\//\\ show default-->
+
+  <!-- Adding an icon -->
+  <div id="simple-tooltip-with-icon" class="_mtxl">
+    Some text to&nbsp;<strong class="color-aqua" supreTooltip="Title Goes Here" icon="u-supre-icon--QSR">test</strong>&nbsp;tooltips with an icon.
+  </div>
+
+  <!-- Add a description -->
+  <div id="simple-tooltip-description" class="flex justify-left">
+    Some text to&nbsp;<strong class="color-aqua" content="Description text" supreTooltip="Title for the Tooltip">test</strong>&nbsp;adding a description to a tooltip.
+  </div>
+
+
+
+
+
+  <!-- Dialog Example -->
+  <div class="flex justify-center" style="margin-top: 100px;">
+    <div class="flex _b1 border-gray" style="width: 600px;">
+      <div class="flex-auto bg-ice border-white _br2">&nbsp;</div>
+      <button class="-toolbar" disabled="disabled"><span class="u-supre-icon u-supre-icon--add-create"></span> Condition</button>
+      <button class="-toolbar" supreTooltip="Clear All Conditions" [supreInlineDialog]="clearAllConditions" [onHover]="false"><span class="u-supre-icon u-supre-icon--refresh-clear"></span> Clear All</button>
+    </div>
+  </div>
+
+  <!-- We can place this anywhere -->
+  <supre-inline-dialog #clearAllConditions title="Clear All Conditions">
+    <p class="_mbm">Are you sure you want to clear all attributes and conditions?</p>
+    <div class="flex justify-end">
+      <button class="-cancel-md" (click)="clearAllConditions.hide()">Cancel</button>
+      <button class="-dialog bg-aqua"><span class="u-supre-icon u-supre-icon--refresh-clear"></span> Clear All</button>
+    </div>
+  </supre-inline-dialog>
+
 </div>

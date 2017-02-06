@@ -1,8 +1,11 @@
-import { Component } from '@angular/core';
+import {
+  Component
+} from '@angular/core';
+import { InlineDialogComponent } from '../../src/dialog/dialog.component';
 
-declare var require: any;
 @Component({
   selector: 'supre-root',
-  template: require('./app.component.html')
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {}
