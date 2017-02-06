@@ -1,0 +1,79 @@
+@import "../node_modules/suprematism-style-guide/dist/vars/_vars.concise.scss";
+@import "../node_modules/suprematism-style-guide/dist/utils/_colors.scss";
+@import "../node_modules/suprematism-style-guide/dist/utils/_spacing.scss";
+@import "../node_modules/suprematism-style-guide/dist/utils/_borders.scss";
+
+@import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss';
+
+$popover-border-color: $aqua;
+$font-size-base: 12px;
+$popover-title-bg: $white;
+$popover-arrow-outer-color: $aqua;
+$popover-arrow-outer-width: 12px;
+$popover-arrow-width: 13px;
+$border-width: 2px;
+
+@import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins/_reset-text.scss';
+@import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins/_vendor-prefixes.scss';
+@import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins/_opacity.scss';
+@import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_tooltip.scss';
+@import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_popovers.scss';
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.popover {
+
+  padding: $spacing-m;
+  border-radius: 4px;
+  border: $border-width solid $popover-border-color;
+  font-size: $font-size-base;
+  animation: fadein .7s;
+  animation-fill-mode: none;
+
+  .popover-title {
+    @extend %_bb0;
+    padding: 0;
+    color: $aqua;
+
+    .dynamic-icon {
+      font-size: 20px;
+      margin-top: 0px;
+      display: inline-block;
+      position: relative;
+      top: 3px;
+      line-height: 0px;
+      height: 0px;
+    }
+
+  }
+
+  .popover-content {
+    padding: $spacing-m 0 0 0;
+    color: $mid-gray;
+  }
+
+  &.top > .arrow:after {
+    bottom: 1px + $border-width;
+  }
+  &.bottom > .arrow:after {
+    top: 1px + $border-width;
+  }
+  &.left > .arrow:after {
+    right: 1px + $border-width;
+  }
+  &.right > .arrow:after {
+    left: 1px + $border-width;
+  }
+
+}
+
