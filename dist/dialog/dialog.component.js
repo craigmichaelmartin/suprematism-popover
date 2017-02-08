@@ -59,4 +59,4 @@ export var InlineDialogComponent = (function (_super) {
     ], InlineDialogComponent);
     return InlineDialogComponent;
 }(AbstractPopoverComponent));
-//# sourceMappingURL=/Users/zacharyfantauzzi/workspace/suprematism-popover/src/dialog/dialog.component.js.map
+//# sourceMappingURL=/Users/jacobstewart/src/suprematism-popover/src/dialog/dialog.component.js.map

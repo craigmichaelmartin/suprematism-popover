@@ -86,4 +86,4 @@ export var AbstractPopoverComponent = (function (_super) {
     ], AbstractPopoverComponent.prototype, "iconBase", void 0);
     return AbstractPopoverComponent;
 }(PopoverContent));
-//# sourceMappingURL=/Users/zacharyfantauzzi/workspace/suprematism-popover/src/popover.abstract.js.map
+//# sourceMappingURL=/Users/jacobstewart/src/suprematism-popover/src/popover.abstract.js.map
