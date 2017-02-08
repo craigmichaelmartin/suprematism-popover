@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 import { TooltipDirective } from './tooltip/tooltip.directive';
@@ -23,7 +23,7 @@ import { Popover, PopoverContent } from 'ngx-popover';
     InlineDialogDirective
   ],
   imports: [
-    BrowserModule
+    CommonModule
   ],
   providers: [],
   entryComponents: [TooltipComponent],
