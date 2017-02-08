@@ -21,9 +21,9 @@ npm run start
 // Run the e2e tests (NOTE: Server must be running)
 npm run e2e
 
-// Build the module/component 
+// Build the module/component
 npm run build
-``` 
+```
 
 #### Angular and CLI Version Info
 ```
@@ -32,8 +32,6 @@ angular-cli: 1.0.0-beta.28.3
 @angular/compiler: 2.4.6
 @angular/compiler-cli: 2.4.6
 @angular/core: 2.4.6
-@angular/forms: 2.4.6
-@angular/http: 2.4.6
 @angular/platform-browser: 2.4.6
 @angular/platform-browser-dynamic: 2.4.6
 @angular/router: 3.4.6

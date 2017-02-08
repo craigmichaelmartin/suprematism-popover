@@ -1,2 +1,2 @@
 export * from './popover.module';
-//# sourceMappingURL=/Users/zacharyfantauzzi/workspace/suprematism-popover/src/index.js.map
+//# sourceMappingURL=/Users/jacobstewart/src/suprematism-popover/src/index.js.map

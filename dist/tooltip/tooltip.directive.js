@@ -89,4 +89,4 @@ export var TooltipDirective = (function (_super) {
     ], TooltipDirective);
     return TooltipDirective;
 }(Popover));
-//# sourceMappingURL=/Users/zacharyfantauzzi/workspace/suprematism-popover/src/tooltip/tooltip.directive.js.map
+//# sourceMappingURL=/Users/jacobstewart/src/suprematism-popover/src/tooltip/tooltip.directive.js.map

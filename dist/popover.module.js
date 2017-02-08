@@ -9,8 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { TooltipDirective } from './tooltip/tooltip.directive';
 import { TooltipComponent } from './tooltip/tooltip.component';
 import { InlineDialogComponent } from './dialog/dialog.component';
@@ -35,9 +33,7 @@ export var PopoverModule = (function () {
                 InlineDialogDirective
             ],
             imports: [
-                BrowserModule,
-                FormsModule,
-                HttpModule
+                BrowserModule
             ],
             providers: [],
             entryComponents: [TooltipComponent],
@@ -47,4 +43,4 @@ export var PopoverModule = (function () {
     ], PopoverModule);
     return PopoverModule;
 }());
-//# sourceMappingURL=/Users/zacharyfantauzzi/workspace/suprematism-popover/src/popover.module.js.map
+//# sourceMappingURL=/Users/jacobstewart/src/suprematism-popover/src/popover.module.js.map
