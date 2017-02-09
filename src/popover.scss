@@ -2,6 +2,7 @@
 @import "../node_modules/suprematism-style-guide/dist/utils/_colors.scss";
 @import "../node_modules/suprematism-style-guide/dist/utils/_spacing.scss";
 @import "../node_modules/suprematism-style-guide/dist/utils/_borders.scss";
+@import "../node_modules/suprematism-style-guide/dist/utils/z-indexes";
 
 @import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss';
 
@@ -33,6 +34,7 @@ $border-width: 2px;
 
 .popover {
 
+  z-index: $z-index-popover;
   padding: $spacing-m;
   border-radius: 4px;
   border: $border-width solid $popover-border-color;
