@@ -54,4 +54,4 @@ export var InlineDialogDirective = (function (_super) {
     ], InlineDialogDirective);
     return InlineDialogDirective;
 }(Popover));
-//# sourceMappingURL=/Users/falosakers/Documents/Projects/suprematism-popover/src/dialog/dialog.directive.js.map
+//# sourceMappingURL=/Users/craigmartin/projects/suprematism-popover/src/dialog/dialog.directive.js.map
