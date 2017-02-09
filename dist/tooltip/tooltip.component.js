@@ -42,4 +42,4 @@ export var TooltipComponent = (function (_super) {
     ], TooltipComponent);
     return TooltipComponent;
 }(AbstractPopoverComponent));
-//# sourceMappingURL=/Users/falosakers/Documents/Projects/suprematism-popover/src/tooltip/tooltip.component.js.map
+//# sourceMappingURL=/Users/craigmartin/projects/suprematism-popover/src/tooltip/tooltip.component.js.map
