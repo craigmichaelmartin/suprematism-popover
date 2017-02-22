@@ -2,7 +2,8 @@ import {
   browser,
   element,
   by,
-  protractor
+  protractor, 
+  WebDriver
 } from 'protractor';
 import { PopoverPage } from './app.po';
 
@@ -14,7 +15,7 @@ describe('Suprematism Popover System', function() {
     page = new PopoverPage();
   });
 
-  describe('Tooltip', ()=> {
+  describe('Tooltip', () => {
 
 
     describe('positioning', () => {
@@ -27,7 +28,7 @@ describe('Suprematism Popover System', function() {
       it('appears on right', () => testPosition('right', 'right'));
       it('appears on bottom', () => testPosition('bottom', 'bottom'));
       it('appears on left', () => testPosition('left', 'left'));
-      
+
       it('default displays on the top', () => testPosition('default', 'top'));
 
       function testPosition(subParent: string, side: string) {
@@ -47,14 +48,14 @@ describe('Suprematism Popover System', function() {
       beforeEach(() => page.navigateTo());
 
       it('appends the icon', () => {
-        browser.actions().mouseMove(element(by.css(`${parent_container} [supretooltip]`))).perform();      
+        browser.actions().mouseMove(element(by.css(`${parent_container} [supretooltip]`))).perform();
         page.waitForByCss(`${parent_container} .popover`);
         expect(element(by.css(`${parent_container} .popover`)).isDisplayed()).toBeTruthy();
         expect(element(by.css(`${parent_container} .popover .popover-title .dynamic-icon`)).isPresent()).toBeTruthy();
       });
 
       it('spacing on the right should be 10px', () => {
-        browser.actions().mouseMove(element(by.css(`${parent_container} [supretooltip]`))).perform();      
+        browser.actions().mouseMove(element(by.css(`${parent_container} [supretooltip]`))).perform();
         page.waitForByCss(`${parent_container} .popover`);
         expect(element(by.css(`${parent_container} .popover`)).isDisplayed()).toBeTruthy();
         element(by.css(`${parent_container} .popover .popover-title .dynamic-icon`))
@@ -63,11 +64,11 @@ describe('Suprematism Popover System', function() {
       });
 
       it('adds the declared icon to the title', () => {
-        browser.actions().mouseMove(element(by.css(`${parent_container} [supretooltip]`))).perform();      
+        browser.actions().mouseMove(element(by.css(`${parent_container} [supretooltip]`))).perform()
         page.waitForByCss(`${parent_container} .popover`);
         expect(element(by.css(`${parent_container} .popover`)).isDisplayed()).toBeTruthy();
         element(by.css(`${parent_container} [supretooltip]`))
-          .getAttribute("icon")
+          .getAttribute('icon')
           .then((value) => {
             expect(element(by.css(`${parent_container} .popover .popover-title .dynamic-icon.u-supre-icon.${value}`)).isPresent()).toBeTruthy();
           });
@@ -101,6 +102,28 @@ describe('Suprematism Popover System', function() {
 
     });
 
+
+    describe('disable', () => {
+
+      beforeEach(() => page.navigateTo());
+
+      it('a tooltip', () => {
+        // normal behavior
+        browser.actions().mouseMove(element(by.css(`#simple-tooltip-positions #default [supretooltip]`))).perform();
+        page.waitForByCss(`#simple-tooltip-positions .popover`);
+        expect(element(by.css(`#simple-tooltip-positions .popover.top`)).isDisplayed()).toBeTruthy();
+        // disable it now
+        browser.actions().mouseMove(element(by.css(`#toggleButton`))).perform();
+        browser.actions().click(element(by.css('#toggleButton'))).perform();
+        browser.actions().mouseMove(element(by.css(`#simple-tooltip-positions #default [supretooltip]`))).perform();
+        browser.manage().timeouts().implicitlyWait(1500)
+          .then(() => {
+            // should not be there
+            expect(element(by.css(`#simple-tooltip-positions .popover.top`)).isPresent()).toBeFalsy();
+          });
+      });
+
+    });
 
 
 

@@ -31,11 +31,10 @@ export var InlineDialogDirective = (function (_super) {
         this.resolver = resolver;
         // Protected Members
         this.PopoverComponent = InlineDialogComponent;
-        // @Input() popoverPlacement: 'top'|'bottom'|'left'|'right'|'auto'|'auto top'|'auto bottom'|'auto left'|'auto right' = 'auto top';
-        // // tslint:disable-next-line:no-input-rename
-        // @Input('supreTooltip') popoverTitle: string;
         // tslint:disable-next-line:no-input-rename
         this.popoverOnHover = false;
+        // tslint:disable-next-line:no-input-rename
+        this.popoverDisabled = false;
     }
     __decorate([
         Input('supreInlineDialog'), 
@@ -45,6 +44,10 @@ export var InlineDialogDirective = (function (_super) {
         Input('onHover'), 
         __metadata('design:type', Object)
     ], InlineDialogDirective.prototype, "popoverOnHover", void 0);
+    __decorate([
+        Input('dialogDisabled'), 
+        __metadata('design:type', Object)
+    ], InlineDialogDirective.prototype, "popoverDisabled", void 0);
     InlineDialogDirective = __decorate([
         Directive({
             selector: '[supreInlineDialog]',
@@ -54,4 +57,4 @@ export var InlineDialogDirective = (function (_super) {
     ], InlineDialogDirective);
     return InlineDialogDirective;
 }(Popover));
-//# sourceMappingURL=/Users/craigmartin/projects/suprematism-popover/src/dialog/dialog.directive.js.map
+//# sourceMappingURL=/Users/zacharyfantauzzi/workspace/suprematism-popover/src/dialog/dialog.directive.js.map

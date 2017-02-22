@@ -33,6 +33,8 @@ export var AbstractPopoverComponent = (function (_super) {
         // public
         this.icon = null;
         this.iconBase = 'u-supre-icon';
+        // tslint:disable-next-line:no-input-rename
+        this.popoverDisabled = false;
     }
     /**
      * Adds additional behavior for showing the component
@@ -84,6 +86,10 @@ export var AbstractPopoverComponent = (function (_super) {
         Input(), 
         __metadata('design:type', Object)
     ], AbstractPopoverComponent.prototype, "iconBase", void 0);
+    __decorate([
+        Input('disabled'), 
+        __metadata('design:type', Object)
+    ], AbstractPopoverComponent.prototype, "popoverDisabled", void 0);
     return AbstractPopoverComponent;
 }(PopoverContent));
-//# sourceMappingURL=/Users/craigmartin/projects/suprematism-popover/src/popover.abstract.js.map
+//# sourceMappingURL=/Users/zacharyfantauzzi/workspace/suprematism-popover/src/popover.abstract.js.map

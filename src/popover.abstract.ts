@@ -15,6 +15,8 @@ export abstract class AbstractPopoverComponent extends PopoverContent {
   // public
   @Input() public icon = null;
   @Input() public iconBase = 'u-supre-icon';
+  // tslint:disable-next-line:no-input-rename
+  @Input('disabled') popoverDisabled = false;
 
 
   /**
@@ -37,12 +39,12 @@ export abstract class AbstractPopoverComponent extends PopoverContent {
 
   /**
    * Adds additional behavior for showing the component
-   * 
+   *
    * Also is bound to the component's clieck event
    * The click event is only applicable when this is used as a component
    * the event does not fire when called form the directive, we manually
    * call this method fro the directive
-   * 
+   *
    * @memberOf TooltipComponent
    */
   public parsePopup() {

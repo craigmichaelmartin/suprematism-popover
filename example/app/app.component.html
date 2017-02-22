@@ -16,8 +16,9 @@
       Some text to&nbsp;<strong popoverPlacement="left" class="color-aqua" supreTooltip="Title for the left here">test</strong>&nbsp;with. Appears on Left.
     </div>
     <div id="default" class="flex justify-left">
-      Some text to&nbsp;<strong class="color-aqua" supreTooltip="Title for the top here">test</strong>&nbsp;with. Default position appear on Top.
+      Some text to&nbsp;<strong class="color-aqua" [disabled]="isDisabled" supreTooltip="Title for the top here">test</strong>&nbsp;with. Default position appear on Top. (is disabled?&nbsp;<strong class="_mt0">{{isDisabled}}</strong>)
     </div>
+    <button id="toggleButton" class="-action" (click)="toggleDisabled()">Enable/Disable Above Tooltip and Bottom Right Dialog</button>
   </div>
 
   <!-- //\\//\\ show default-->
@@ -41,8 +42,9 @@
     <div class="flex _b1 border-gray" style="width: 600px;">
       <div class="flex-auto bg-ice border-white _br2">&nbsp;</div>
       <button class="-toolbar" disabled="disabled"><span class="u-supre-icon u-supre-icon--add-create"></span> Condition</button>
-      <button class="-toolbar" supreTooltip="Clear All Conditions" [supreInlineDialog]="clearAllConditions" [onHover]="false"><span class="u-supre-icon u-supre-icon--refresh-clear"></span> Clear All</button>
+      <button class="-toolbar" supreTooltip="Clear All Conditions" [dialogDisabled]="isDisabled" [supreInlineDialog]="clearAllConditions" [onHover]="false"><span class="u-supre-icon u-supre-icon--refresh-clear"></span> Clear All</button>
     </div>
+    <span class="_mls">(is dialog disabled?&nbsp;<strong class="_mt0">{{isDisabled}}</strong>)</span>
   </div>
 
   <!-- We can place this anywhere -->

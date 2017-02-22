@@ -18,7 +18,9 @@ import { AbstractPopoverComponent } from '../popover.abstract';
 })
 export class InlineDialogComponent extends AbstractPopoverComponent implements AfterViewInit {
 
+  /** Inputs */
   @Input() placement = <'bottom'>'bottom';
+
 
   /**
    * Creates an instance of TooltipComponent.
