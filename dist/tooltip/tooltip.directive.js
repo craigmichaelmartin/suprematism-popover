@@ -32,10 +32,11 @@ export var TooltipDirective = (function (_super) {
         // Protected Members
         this.PopoverComponent = TooltipComponent;
         // Public Members
-        // NOTE: see original directive for all inputs
         this.content = '';
         this.popoverPlacement = 'auto top';
         this.popoverOnHover = true;
+        // tslint:disable-next-line:no-input-rename
+        this.popoverDisabled = false;
         this.icon = null;
         this.iconBase = 'u-supre-icon';
     }
@@ -73,6 +74,10 @@ export var TooltipDirective = (function (_super) {
         __metadata('design:type', Object)
     ], TooltipDirective.prototype, "popoverOnHover", void 0);
     __decorate([
+        Input('disabled'), 
+        __metadata('design:type', Object)
+    ], TooltipDirective.prototype, "popoverDisabled", void 0);
+    __decorate([
         Input(), 
         __metadata('design:type', String)
     ], TooltipDirective.prototype, "icon", void 0);
@@ -89,4 +94,4 @@ export var TooltipDirective = (function (_super) {
     ], TooltipDirective);
     return TooltipDirective;
 }(Popover));
-//# sourceMappingURL=/Users/craigmartin/projects/suprematism-popover/src/tooltip/tooltip.directive.js.map
+//# sourceMappingURL=/Users/zacharyfantauzzi/workspace/suprematism-popover/src/tooltip/tooltip.directive.js.map

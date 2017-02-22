@@ -30,6 +30,7 @@ export var InlineDialogComponent = (function (_super) {
         this.element = element;
         this.cdr = cdr;
         this.renderer = renderer;
+        /** Inputs */
         this.placement = 'bottom';
     }
     /**
@@ -59,4 +60,4 @@ export var InlineDialogComponent = (function (_super) {
     ], InlineDialogComponent);
     return InlineDialogComponent;
 }(AbstractPopoverComponent));
-//# sourceMappingURL=/Users/craigmartin/projects/suprematism-popover/src/dialog/dialog.component.js.map
+//# sourceMappingURL=/Users/zacharyfantauzzi/workspace/suprematism-popover/src/dialog/dialog.component.js.map

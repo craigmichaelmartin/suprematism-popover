@@ -23,12 +23,13 @@ export class TooltipDirective extends Popover implements AfterViewInit {
 
 
   // Public Members
-  // NOTE: see original directive for all inputs
   @Input() content: string | TooltipComponent = '';
   @Input() popoverPlacement: 'top'|'bottom'|'left'|'right'|'auto'|'auto top'|'auto bottom'|'auto left'|'auto right' = 'auto top';
   // tslint:disable-next-line:no-input-rename
   @Input('supreTooltip') popoverTitle: string;
   @Input() popoverOnHover = true;
+  // tslint:disable-next-line:no-input-rename
+  @Input('disabled') popoverDisabled = false;
   @Input() icon: string = null;
   @Input() iconBase = 'u-supre-icon';
 

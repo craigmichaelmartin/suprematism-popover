@@ -8,4 +8,12 @@ import { InlineDialogComponent } from '../../src/dialog/dialog.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {}
+export class AppComponent {
+
+  public isDisabled = false;
+
+  public toggleDisabled() {
+    this.isDisabled = !this.isDisabled;
+  }
+
+}
