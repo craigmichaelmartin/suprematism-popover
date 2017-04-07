@@ -1,10 +1,10 @@
-@import "../node_modules/suprematism-style-guide/dist/vars/_vars.concise.scss";
-@import "../node_modules/suprematism-style-guide/dist/utils/_colors.scss";
-@import "../node_modules/suprematism-style-guide/dist/utils/_spacing.scss";
-@import "../node_modules/suprematism-style-guide/dist/utils/_borders.scss";
-@import "../node_modules/suprematism-style-guide/dist/utils/z-indexes";
+@import "vars/_vars.concise.scss";
+@import "utils/_colors.scss";
+@import "utils/_spacing.scss";
+@import "utils/_borders.scss";
+@import "utils/z-indexes";
 
-@import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss';
+@import 'bootstrap/_variables.scss';
 
 $popover-border-color: $aqua;
 $font-size-base: 12px;
@@ -14,11 +14,11 @@ $popover-arrow-outer-width: 12px;
 $popover-arrow-width: 13px;
 $border-width: 2px;
 
-@import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins/_reset-text.scss';
-@import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins/_vendor-prefixes.scss';
-@import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins/_opacity.scss';
-@import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_tooltip.scss';
-@import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_popovers.scss';
+@import 'bootstrap/mixins/_reset-text.scss';
+@import 'bootstrap/mixins/_vendor-prefixes.scss';
+@import 'bootstrap/mixins/_opacity.scss';
+@import 'bootstrap/_tooltip.scss';
+@import 'bootstrap/_popovers.scss';
 
 @keyframes fadein {
   0% {

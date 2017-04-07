@@ -1,1 +1,1 @@
-export * from './popover.module';
+export * from './supre-popover.module';
