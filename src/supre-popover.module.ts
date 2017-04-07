@@ -5,13 +5,11 @@ import { TooltipDirective } from './tooltip/tooltip.directive';
 import { TooltipComponent } from './tooltip/tooltip.component';
 import { InlineDialogComponent } from './dialog/dialog.component';
 import { InlineDialogDirective } from './dialog/dialog.directive';
-import { Popover, PopoverContent } from 'ngx-popover';
+// import { Popover, PopoverContent } from 'ngx-popover';
 
 
 @NgModule({
   declarations: [
-    Popover,
-    PopoverContent,
     TooltipDirective,
     TooltipComponent,
     InlineDialogComponent,
@@ -29,4 +27,4 @@ import { Popover, PopoverContent } from 'ngx-popover';
   entryComponents: [TooltipComponent],
   bootstrap: []
 })
-export class PopoverModule { }
+export class SuprePopoverModule { }

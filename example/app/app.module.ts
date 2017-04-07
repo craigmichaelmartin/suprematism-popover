@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
-import { PopoverModule } from '../../src/popover.module';
+import { SuprePopoverModule } from '../../src/supre-popover.module';
 
 
 @NgModule({
@@ -12,7 +12,7 @@ import { PopoverModule } from '../../src/popover.module';
   ],
   imports: [
     BrowserModule,
-    PopoverModule
+    SuprePopoverModule
   ],
   providers: [],
   bootstrap: [AppComponent]

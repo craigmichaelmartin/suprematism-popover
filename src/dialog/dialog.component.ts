@@ -12,8 +12,8 @@ import { AbstractPopoverComponent } from '../popover.abstract';
 
 @Component({
   selector: 'supre-inline-dialog',
-  template: require('../popover.component.html'),
-  styles: [require('../popover.scss')],
+  templateUrl: '../popover.component.html',
+  styleUrls: ['../popover.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class InlineDialogComponent extends AbstractPopoverComponent implements AfterViewInit {

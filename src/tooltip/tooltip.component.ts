@@ -9,8 +9,8 @@ import { AbstractPopoverComponent } from '../popover.abstract';
 
 @Component({
   selector: 'supre-tooltip',
-  template: require('../popover.component.html'),
-  styles: [require('../popover.scss')],
+  templateUrl: '../popover.component.html',
+  styleUrls: ['../popover.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class TooltipComponent extends AbstractPopoverComponent {
