@@ -4,7 +4,7 @@ import {
   ComponentRef,
   ViewContainerRef,
   ComponentFactoryResolver,
-  AfterViewInit
+  AfterViewInit, HostListener
 } from '@angular/core';
 import { Popover } from 'ngx-popover';
 import { TooltipComponent } from './tooltip.component';
@@ -32,7 +32,7 @@ export class TooltipDirective extends Popover implements AfterViewInit {
   @Input('disabled') popoverDisabled = false;
   @Input() icon: string = null;
   @Input() iconBase = 'u-supre-icon';
-
+  @Input() closeTooltipOnClick = false;
 
   /**
    * Creates an instance of TooltipDirective.
@@ -67,4 +67,12 @@ export class TooltipDirective extends Popover implements AfterViewInit {
       });
   }
 
+  /**
+   * Hide tooltip on click
+   */
+  @HostListener('click', ['$event.target']) onClick() {
+    if (this.closeTooltipOnClick) {
+      this.popover.instance.hide();
+    }
+  }
 }
