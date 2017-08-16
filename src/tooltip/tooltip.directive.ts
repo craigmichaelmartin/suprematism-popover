@@ -4,27 +4,35 @@ import {
   ComponentRef,
   ViewContainerRef,
   ComponentFactoryResolver,
-  AfterViewInit, HostListener
+  AfterViewInit,
+  HostListener
 } from '@angular/core';
 import { Popover } from 'ngx-popover';
 import { TooltipComponent } from './tooltip.component';
-
 
 @Directive({
   selector: '[supreTooltip]',
   exportAs: 'supreTooltip'
 })
 export class TooltipDirective extends Popover implements AfterViewInit {
-
   // Protected Members
   protected PopoverComponent = TooltipComponent;
   protected popover: ComponentRef<TooltipComponent>;
   protected visible: boolean;
 
-
   // Public Members
   @Input() content: string | TooltipComponent = '';
-  @Input() popoverPlacement: 'top'|'bottom'|'left'|'right'|'auto'|'auto top'|'auto bottom'|'auto left'|'auto right' = 'auto top';
+  @Input()
+  popoverPlacement:
+    | 'top'
+    | 'bottom'
+    | 'left'
+    | 'right'
+    | 'auto'
+    | 'auto top'
+    | 'auto bottom'
+    | 'auto left'
+    | 'auto right' = 'auto top';
   // tslint:disable-next-line:no-input-rename
   @Input('supreTooltip') popoverTitle: string;
   @Input() popoverOnHover = true;
@@ -49,7 +57,6 @@ export class TooltipDirective extends Popover implements AfterViewInit {
     super(viewContainerRef, resolver);
   }
 
-
   /**
    * Hook: AfterViewInit
    *
@@ -58,19 +65,19 @@ export class TooltipDirective extends Popover implements AfterViewInit {
    */
   ngAfterViewInit() {
     // subscribe to the onShown eventEmitter and set the additional props on the component
-    this.onShown
-      .subscribe(() => {
-        if (this.icon) {
-          this.popover.instance.icon = `${this.iconBase} ${this.icon}`;
-        }
-        this.popover.instance.parsePopup();
-      });
+    this.onShown.subscribe(() => {
+      if (this.icon) {
+        this.popover.instance.icon = `${this.iconBase} ${this.icon}`;
+      }
+      this.popover.instance.parsePopup();
+    });
   }
 
   /**
    * Hide tooltip on click
    */
-  @HostListener('click', ['$event.target']) onClick() {
+  @HostListener('click', ['$event.target'])
+  onClick() {
     if (this.closeTooltipOnClick) {
       this.popover.instance.hide();
     }

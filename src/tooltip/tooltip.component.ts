@@ -14,7 +14,6 @@ import { AbstractPopoverComponent } from '../popover.abstract';
   encapsulation: ViewEncapsulation.None
 })
 export class TooltipComponent extends AbstractPopoverComponent {
-
   /**
    * Creates an instance of TooltipComponent.
    *
@@ -31,5 +30,4 @@ export class TooltipComponent extends AbstractPopoverComponent {
   ) {
     super(element, cdr, renderer);
   }
-
 }

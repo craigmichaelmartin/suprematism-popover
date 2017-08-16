@@ -9,18 +9,15 @@ import {
 import { Popover } from 'ngx-popover';
 import { InlineDialogComponent } from './dialog.component';
 
-
 @Directive({
   selector: '[supreInlineDialog]',
   exportAs: 'supreInlineDialog'
 })
 export class InlineDialogDirective extends Popover {
-
   // Protected Members
   protected PopoverComponent = InlineDialogComponent;
   protected popover: ComponentRef<InlineDialogComponent>;
   protected visible: boolean;
-
 
   // Public Members
   // tslint:disable-next-line:no-input-rename
@@ -29,8 +26,6 @@ export class InlineDialogDirective extends Popover {
   @Input('onHover') popoverOnHover = false;
   // tslint:disable-next-line:no-input-rename
   @Input('dialogDisabled') popoverDisabled = false;
-
-
 
   /**
    * Creates an instance of TooltipDirective.
@@ -46,5 +41,4 @@ export class InlineDialogDirective extends Popover {
   ) {
     super(viewContainerRef, resolver);
   }
-
 }

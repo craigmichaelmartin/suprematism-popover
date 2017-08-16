@@ -1,4 +1,7 @@
 # Suprematism Popover: <br>Tooltips &amp; Inline Dialogs
+
+[![Build Status][travis-badge]][travis-badge-url]
+
 Extended from all the hardwork at [pleerock/ng2-popover](https://github.com/pleerock/ng2-popover). Thanks to [@pleerock](https://github.com/pleerock)!
 <br>
 <br>
@@ -36,3 +39,6 @@ angular-cli: 1.0.0-beta.28.3
 @angular/platform-browser-dynamic: 2.4.6
 @angular/router: 3.4.6
 ```
+
+[travis-badge]: https://travis-ci.org/CINBCUniversal/suprematism-popover.svg?branch=master
+[travis-badge-url]: https://travis-ci.org/CINBCUniversal/suprematism-popover
