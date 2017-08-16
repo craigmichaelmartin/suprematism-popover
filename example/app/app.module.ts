@@ -5,16 +5,10 @@ import { AppComponent } from './app.component';
 
 import { SuprePopoverModule } from '../../src/supre-popover.module';
 
-
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    SuprePopoverModule
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule, SuprePopoverModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

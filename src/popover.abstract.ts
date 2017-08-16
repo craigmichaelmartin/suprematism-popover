@@ -9,15 +9,12 @@ import {
 } from '@angular/core';
 import { PopoverContent } from 'ngx-popover';
 
-
 export abstract class AbstractPopoverComponent extends PopoverContent {
-
   // public
   @Input() public icon = null;
   @Input() public iconBase = 'u-supre-icon';
   // tslint:disable-next-line:no-input-rename
   @Input('disabled') popoverDisabled = false;
-
 
   /**
    * Creates an instance of TooltipComponent.
@@ -36,7 +33,6 @@ export abstract class AbstractPopoverComponent extends PopoverContent {
     super(element, cdr, renderer);
   }
 
-
   /**
    * Adds additional behavior for showing the component
    *
@@ -52,7 +48,6 @@ export abstract class AbstractPopoverComponent extends PopoverContent {
     this.appendIcon();
   }
 
-
   /**
    * Check to see if the description is empty
    *
@@ -62,11 +57,13 @@ export abstract class AbstractPopoverComponent extends PopoverContent {
    */
   private removedescriptionTest() {
     const el = this.element.nativeElement.querySelector('.popover-content');
-    if (!Array.from(el.childNodes).some(_el => _el['length'] > 0) && !this.content) {
+    if (
+      !Array.from(el.childNodes).some(_el => _el['length'] > 0) &&
+      !this.content
+    ) {
       el.parentNode.removeChild(el);
     }
   }
-
 
   /**
    * Append an Icon, if there is one
@@ -76,13 +73,18 @@ export abstract class AbstractPopoverComponent extends PopoverContent {
    * @memberOf TooltipComponent
    */
   private appendIcon() {
-    const popoverTitle = this.element.nativeElement.querySelector('.popover-title');
-    if (this.icon !== null && this.icon.length > 0 && popoverTitle.querySelector('.dynamic-icon') === null) {
+    const popoverTitle = this.element.nativeElement.querySelector(
+      '.popover-title'
+    );
+    if (
+      this.icon !== null &&
+      this.icon.length > 0 &&
+      popoverTitle.querySelector('.dynamic-icon') === null
+    ) {
       const icon = document.createElement('span'),
-            el = popoverTitle.childNodes[0];
+        el = popoverTitle.childNodes[0];
       icon.className += `dynamic-icon ${this.iconBase} ${this.icon} _mrs `;
       popoverTitle.insertBefore(icon, el);
     }
   }
-
 }

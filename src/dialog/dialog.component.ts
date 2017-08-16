@@ -1,3 +1,4 @@
+/* tslint:disable */
 import {
   Component,
   ElementRef,
@@ -9,18 +10,16 @@ import {
 } from '@angular/core';
 import { AbstractPopoverComponent } from '../popover.abstract';
 
-
 @Component({
   selector: 'supre-inline-dialog',
   templateUrl: '../popover.component.html',
   styleUrls: ['../popover.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class InlineDialogComponent extends AbstractPopoverComponent implements AfterViewInit {
-
+export class InlineDialogComponent extends AbstractPopoverComponent
+  implements AfterViewInit {
   /** Inputs */
   @Input() placement = <'bottom'>'bottom';
-
 
   /**
    * Creates an instance of TooltipComponent.
@@ -39,7 +38,6 @@ export class InlineDialogComponent extends AbstractPopoverComponent implements A
     super(element, cdr, renderer);
   }
 
-
   /**
    * LifeCycle Hook: After View Init
    *
@@ -52,5 +50,4 @@ export class InlineDialogComponent extends AbstractPopoverComponent implements A
   ngAfterViewInit() {
     this.parsePopup();
   }
-
 }

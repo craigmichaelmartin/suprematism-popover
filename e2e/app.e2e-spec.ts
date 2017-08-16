@@ -1,14 +1,7 @@
-import { 
-  browser,
-  element,
-  by,
-  protractor, 
-  WebDriver
-} from 'protractor';
+import { browser, element, by, protractor, WebDriver } from 'protractor';
 import { PopoverPage } from './app.po';
 
 describe('Suprematism Popover System', function() {
-
   let page: PopoverPage;
 
   beforeEach(() => {
@@ -16,10 +9,7 @@ describe('Suprematism Popover System', function() {
   });
 
   describe('Tooltip', () => {
-
-
     describe('positioning', () => {
-
       const parent_container = '#simple-tooltip-positions';
 
       beforeEach(() => page.navigateTo());
@@ -32,103 +22,189 @@ describe('Suprematism Popover System', function() {
       it('default displays on the top', () => testPosition('default', 'top'));
 
       function testPosition(subParent: string, side: string) {
-        browser.actions().mouseMove(element(by.css(`${parent_container} #${subParent} [supretooltip]`))).perform();
+        browser
+          .actions()
+          .mouseMove(
+            element(by.css(`${parent_container} #${subParent} [supretooltip]`))
+          )
+          .perform();
         page.waitForByCss(`${parent_container} .popover.${side}`);
-        expect(element(by.css(`${parent_container} .popover.${side}`)).isDisplayed()).toBeTruthy();
-        expect(element(by.css(`${parent_container} .popover.${side} .popover-title`)).getText()).toEqual(`Title for the ${side} here`);
+        expect(
+          element(by.css(`${parent_container} .popover.${side}`)).isDisplayed()
+        ).toBeTruthy();
+        expect<any>(
+          element(
+            by.css(`${parent_container} .popover.${side} .popover-title`)
+          ).getText()
+        ).toEqual(`Title for the ${side} here`);
       }
-
     });
 
-
     describe('icon', () => {
-
       const parent_container = '#simple-tooltip-with-icon';
 
       beforeEach(() => page.navigateTo());
 
       it('appends the icon', () => {
-        browser.actions().mouseMove(element(by.css(`${parent_container} [supretooltip]`))).perform();
+        browser
+          .actions()
+          .mouseMove(element(by.css(`${parent_container} [supretooltip]`)))
+          .perform();
         page.waitForByCss(`${parent_container} .popover`);
-        expect(element(by.css(`${parent_container} .popover`)).isDisplayed()).toBeTruthy();
-        expect(element(by.css(`${parent_container} .popover .popover-title .dynamic-icon`)).isPresent()).toBeTruthy();
+        expect(
+          element(by.css(`${parent_container} .popover`)).isDisplayed()
+        ).toBeTruthy();
+        expect(
+          element(
+            by.css(`${parent_container} .popover .popover-title .dynamic-icon`)
+          ).isPresent()
+        ).toBeTruthy();
       });
 
       it('spacing on the right should be 10px', () => {
-        browser.actions().mouseMove(element(by.css(`${parent_container} [supretooltip]`))).perform();
+        browser
+          .actions()
+          .mouseMove(element(by.css(`${parent_container} [supretooltip]`)))
+          .perform();
         page.waitForByCss(`${parent_container} .popover`);
-        expect(element(by.css(`${parent_container} .popover`)).isDisplayed()).toBeTruthy();
-        element(by.css(`${parent_container} .popover .popover-title .dynamic-icon`))
+        expect(
+          element(by.css(`${parent_container} .popover`)).isDisplayed()
+        ).toBeTruthy();
+        element(
+          by.css(`${parent_container} .popover .popover-title .dynamic-icon`)
+        )
           .getCssValue('margin-right')
           .then(value => expect(value).toEqual('10px'));
       });
 
       it('adds the declared icon to the title', () => {
-        browser.actions().mouseMove(element(by.css(`${parent_container} [supretooltip]`))).perform()
+        browser
+          .actions()
+          .mouseMove(element(by.css(`${parent_container} [supretooltip]`)))
+          .perform();
         page.waitForByCss(`${parent_container} .popover`);
-        expect(element(by.css(`${parent_container} .popover`)).isDisplayed()).toBeTruthy();
+        expect(
+          element(by.css(`${parent_container} .popover`)).isDisplayed()
+        ).toBeTruthy();
         element(by.css(`${parent_container} [supretooltip]`))
           .getAttribute('icon')
-          .then((value) => {
-            expect(element(by.css(`${parent_container} .popover .popover-title .dynamic-icon.u-supre-icon.${value}`)).isPresent()).toBeTruthy();
+          .then(value => {
+            expect(
+              element(
+                by.css(
+                  `${parent_container} .popover .popover-title .dynamic-icon.u-supre-icon.${value}`
+                )
+              ).isPresent()
+            ).toBeTruthy();
           });
       });
-      
     });
 
-
     describe('descriptions', () => {
-
       const parent_container_with_description = '#simple-tooltip-description';
-      const parent_container_without_description = '#simple-tooltip-positions #top';
+      const parent_container_without_description =
+        '#simple-tooltip-positions #top';
 
       beforeEach(() => page.navigateTo());
 
       it('adds the text to the popover-content element', () => {
-        browser.actions().mouseMove(element(by.css(`${parent_container_with_description} [supretooltip]`))).perform();
+        browser
+          .actions()
+          .mouseMove(
+            element(
+              by.css(`${parent_container_with_description} [supretooltip]`)
+            )
+          )
+          .perform();
         page.waitForByCss(`${parent_container_with_description} .popover`);
-        expect(element(by.css(`${parent_container_with_description} .popover`)).isDisplayed()).toBeTruthy();
-        expect(element(by.css(`${parent_container_with_description} .popover .popover-title`)).getText()).toEqual(`Title for the Tooltip`);
-        expect(element(by.css(`${parent_container_with_description} .popover .popover-content`)).getText()).toEqual(`Description text`);
+        expect(
+          element(
+            by.css(`${parent_container_with_description} .popover`)
+          ).isDisplayed()
+        ).toBeTruthy();
+        expect<any>(
+          element(
+            by.css(
+              `${parent_container_with_description} .popover .popover-title`
+            )
+          ).getText()
+        ).toEqual(`Title for the Tooltip`);
+        expect<any>(
+          element(
+            by.css(
+              `${parent_container_with_description} .popover .popover-content`
+            )
+          ).getText()
+        ).toEqual(`Description text`);
       });
 
       it('removes the .popover-content element when there is no content attribute', () => {
-        browser.actions().mouseMove(element(by.css(`${parent_container_without_description} [supretooltip]`))).perform();
+        browser
+          .actions()
+          .mouseMove(
+            element(
+              by.css(`${parent_container_without_description} [supretooltip]`)
+            )
+          )
+          .perform();
         page.waitForByCss(`${parent_container_without_description} .popover`);
-        expect(element(by.css(`${parent_container_without_description} .popover`)).isDisplayed()).toBeTruthy();
-        expect(element(by.css(`${parent_container_without_description} .popover .popover-title`)).getText()).toEqual(`Title for the top here`);
-        expect(element(by.css(`${parent_container_without_description} .popover .popover-content`)).isPresent()).toBeFalsy();
+        expect(
+          element(
+            by.css(`${parent_container_without_description} .popover`)
+          ).isDisplayed()
+        ).toBeTruthy();
+        expect<any>(
+          element(
+            by.css(
+              `${parent_container_without_description} .popover .popover-title`
+            )
+          ).getText()
+        ).toEqual(`Title for the top here`);
+        expect(
+          element(
+            by.css(
+              `${parent_container_without_description} .popover .popover-content`
+            )
+          ).isPresent()
+        ).toBeFalsy();
       });
-
     });
 
-
     describe('disable', () => {
-
       beforeEach(() => page.navigateTo());
 
       it('a tooltip', () => {
         // normal behavior
-        browser.actions().mouseMove(element(by.css(`#simple-tooltip-positions #default [supretooltip]`))).perform();
+        browser
+          .actions()
+          .mouseMove(
+            element(by.css(`#simple-tooltip-positions #default [supretooltip]`))
+          )
+          .perform();
         page.waitForByCss(`#simple-tooltip-positions .popover`);
-        expect(element(by.css(`#simple-tooltip-positions .popover.top`)).isDisplayed()).toBeTruthy();
+        expect(
+          element(
+            by.css(`#simple-tooltip-positions .popover.top`)
+          ).isDisplayed()
+        ).toBeTruthy();
         // disable it now
         browser.actions().mouseMove(element(by.css(`#toggleButton`))).perform();
         browser.actions().click(element(by.css('#toggleButton'))).perform();
-        browser.actions().mouseMove(element(by.css(`#simple-tooltip-positions #default [supretooltip]`))).perform();
-        browser.manage().timeouts().implicitlyWait(1500)
-          .then(() => {
-            // should not be there
-            expect(element(by.css(`#simple-tooltip-positions .popover.top`)).isPresent()).toBeFalsy();
-          });
+        browser
+          .actions()
+          .mouseMove(
+            element(by.css(`#simple-tooltip-positions #default [supretooltip]`))
+          )
+          .perform();
+        browser.manage().timeouts().implicitlyWait(1500).then(() => {
+          // should not be there
+          expect(
+            element(
+              by.css(`#simple-tooltip-positions .popover.top`)
+            ).isPresent()
+          ).toBeFalsy();
+        });
       });
-
     });
-
-
-
   });
-
-
-
 });
