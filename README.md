@@ -1,5 +1,7 @@
 # Suprematism Popover: <br>Tooltips &amp; Inline Dialogs
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/CINBCUniversal/suprematism-popover.svg)](https://greenkeeper.io/)
+
 [![Build Status][travis-badge]][travis-badge-url]
 
 Extended from all the hardwork at [pleerock/ng2-popover](https://github.com/pleerock/ng2-popover). Thanks to [@pleerock](https://github.com/pleerock)!
