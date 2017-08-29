@@ -9,6 +9,8 @@ Extended from all the hardwork at [pleerock/ng2-popover](https://github.com/plee
 <br>
 <br>
 
+# DEPRECATED - Please use the [suprematism library](https://github.com/CINBCUniversal/suprematism)
+
 ## Documentation for Usage
 Please visit the [Suprematism Style Guide](https://cinbcuniversal.github.io/suprematism-style-guide/) for documentation needs.
 <br>
